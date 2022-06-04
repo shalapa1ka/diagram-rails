@@ -1,5 +1,5 @@
 doctype html
-html
+html.h-100
   head
     title
       | Diagram
@@ -8,5 +8,11 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = yield
+  body class='d-flex flex-column h-100'
+
+    = javascript_pack_tag 'hello.js'
+    .main.mt-5
+      .container
+        .row
+          .col
+            = yield

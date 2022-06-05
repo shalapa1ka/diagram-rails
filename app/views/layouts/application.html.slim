@@ -10,9 +10,6 @@ html.h-100
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body class='d-flex flex-column h-100'
 
-    = javascript_pack_tag 'hello.js'
     .main.mt-5
       .container
-        .row
-          .col
-            = yield
+        = yield

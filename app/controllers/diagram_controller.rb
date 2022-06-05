@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
 class DiagramController < ApplicationController
-  def show; end
+  def show
+    @items = Item.all
+    @item = Item.new
+  end
 end

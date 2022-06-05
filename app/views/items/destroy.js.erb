@@ -1,0 +1,6 @@
+$(".<%= dom_id(@item) %>").remove();
+
+var i = chart.data.labels.indexOf('<%= @item.name %>');
+chart.data.labels.splice(i, 1);
+chart.data.datasets[0].data.splice(i, 1);
+chart.update();

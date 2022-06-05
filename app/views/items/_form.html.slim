@@ -1,0 +1,10 @@
+= form_with model: @item || item, local: false do |f|
+  .form-floating.mt-2
+    = f.text_field :name, class: 'form-control', id: 'floatingName', placeholder: 'Name'
+    = f.label 'Name', for: 'floatingName'
+  .form-floating.mt-2
+    = f.text_field :percent, class: 'form-control', id: 'floatingBody', placeholder: 'Percent'
+    = f.label 'Percent', for: 'floatingBody'
+
+  .form-floating.w-50.mt-2
+    = f.submit nil, class: 'btn btn-success my-2', data: { remote: true }

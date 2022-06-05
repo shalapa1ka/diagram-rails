@@ -8,8 +8,10 @@ require("@popperjs/core")
 import "bootstrap"
 import { Tooltip, Popover } from "bootstrap"
 require("../stylesheets/application.scss")
+import Chart from 'chart.js/auto'
 
 document.addEventListener("turbolinks:load", () => {
+    window.Chart = Chart
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new Tooltip(tooltipTriggerEl)
@@ -19,6 +21,7 @@ document.addEventListener("turbolinks:load", () => {
         return new Popover(popoverTriggerEl)
     })
 })
+
 
 Rails.start()
 Turbolinks.start()

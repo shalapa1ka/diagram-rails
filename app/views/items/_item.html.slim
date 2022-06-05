@@ -1,0 +1,16 @@
+div class="#{dom_id(item)}"
+  .container.border.mb-3
+    .row.mb-1
+      .col.pt-2
+        span Name: #{item.name}
+    .row.mb-1
+      .col.pt-2
+        span Percent: #{item.percent}%
+    .row.mb-1
+      .col
+        = link_to 'Edit', edit_item_path(item),
+                class: 'btn btn-secondary',
+                data: { remote: true }
+        = link_to "Delete", item,
+                class: 'btn btn-danger m-2',
+                method: :delete, confirm: 'Are toy sure?'

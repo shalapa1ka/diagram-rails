@@ -1,0 +1,8 @@
+var error_block = $('.item-errors')
+<% if @item.errors.present? %>
+  error_block.html("<% @item.errors.full_messages.each do |message| %> <div class='alert alert-danger'>  <%= j message %> </div> <% end %>")
+<% else %>
+  error_block.html('')
+  $(".items").html('<%= j render partial: 'items/item', collection: @items %>')
+  $("#myChart").html('<%= j render partial: 'shared/chart_canvas' %>')
+<%end %>

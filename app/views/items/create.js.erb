@@ -1,8 +1,11 @@
-<% javascript_pack_tag 'update_chart' %>
 var error_block = $('.item-errors')
 <% if @item.errors.present? %>
-  error_block.html("<% @item.errors.full_messages.each do |message| %> <div class='alert alert-danger'>  <%= j message %> </div> <% end %>")
+  error_block.html("<% @item.errors.full_messages.each do |message| %> <div class='alert alert-danger'>  <%= j message %> </div> <% end %>");
 <% else %>
-  error_block.html('')
-  $(".items").prepend('<%= j render partial: 'items/item', locals: { item: @item } %>')
+  error_block.html('');
+  $(".items").prepend('<%= j render partial: 'items/item', locals: { item: @item } %>');
+
+  chart.data.labels.push('<%= @item.name %>');
+  chart.data.datasets[0].data.push(<%= @item.percent %>);
+  chart.update();
 <%end %>

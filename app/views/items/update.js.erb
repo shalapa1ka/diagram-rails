@@ -1,7 +1,12 @@
 var error_block = $('.item-errors')
 <% if @item.errors.present? %>
-  error_block.html("<% @item.errors.full_messages.each do |message| %> <div class='alert alert-danger'>  <%= j message %> </div> <% end %>")
+  error_block.html("<% @item.errors.full_messages.each do |message| %> <div class='alert alert-danger'>  <%= j message %> </div> <% end %>");
 <% else %>
-  error_block.html('')
-  $(".<%= dom_id(@item) %>").replaceWith('<%= j render partial: 'items/item', locals: { item: @item } %>')
-<%end %>
+  error_block.html('');
+  $(".<%= dom_id(@item) %>").replaceWith('<%= j render partial: 'items/item', locals: { item: @item } %>');
+
+  var i = chart.data.labels.indexOf('<%= @item.name %>');
+  chart.data.labels[i] = '<%= @item.name %>';
+  chart.data.datasets[0].data[i] = <%= @item.percent %>;
+  chart.update();
+<% end %>

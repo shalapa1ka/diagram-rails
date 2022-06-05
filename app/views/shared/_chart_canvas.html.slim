@@ -1,6 +1,4 @@
-- chart_hash = {}
-- @items.each do |i|
-  - chart_hash[i.name] = i.percent
-canvas#myChart width="600px" height="400px" data-labels="#{chart_hash.keys}" data-data="#{chart_hash.values}"
+canvas#myChart width="600px" height="400px"
 
 = javascript_pack_tag 'doughnut.js'
+= javascript_pack_tag 'update_chart'

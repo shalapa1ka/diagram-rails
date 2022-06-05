@@ -10,7 +10,7 @@ div class="#{dom_id(item)}"
       .col
         = link_to 'Edit', edit_item_path(item),
                 class: 'btn btn-secondary',
-                data: { remote: true }
+                remote: true
         = link_to "Delete", item,
                 class: 'btn btn-danger m-2',
-                method: :delete, confirm: 'Are toy sure?'
+                method: :delete, confirm: 'Are toy sure?', remote: true

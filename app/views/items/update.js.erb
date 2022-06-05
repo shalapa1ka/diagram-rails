@@ -1,8 +1,7 @@
-<% javascript_pack_tag 'update_chart' %>
 var error_block = $('.item-errors')
 <% if @item.errors.present? %>
   error_block.html("<% @item.errors.full_messages.each do |message| %> <div class='alert alert-danger'>  <%= j message %> </div> <% end %>")
 <% else %>
   error_block.html('')
-  $(".items").prepend('<%= j render partial: 'items/item', locals: { item: @item } %>')
+  $(".<%= dom_id(@item) %>").replaceWith('<%= j render partial: 'items/item', locals: { item: @item } %>')
 <%end %>

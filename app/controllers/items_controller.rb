@@ -1,22 +1,26 @@
 class ItemsController < ApplicationController
+  before_action :find_items
   before_action :find_item, only: %i[edit update destroy]
 
   def create
-    @items = Item.all
     @item = Item.create(item_params)
   end
 
   def edit; end
 
   def update
-    redirect_to root_path if @item.update(item_params)
+    @item.update(item_params)
   end
 
   def destroy
-    redirect_to root_path if @item.destroy
+    @item.destroy
   end
 
   private
+
+  def find_items
+    @items = Item.all
+  end
 
   def find_item
     @item = Item.find(params[:id])

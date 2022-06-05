@@ -1,4 +1,4 @@
-= form_with model: @item || Item.new, local: false do |f|
+= form_with model: @item || item, local: false do |f|
   .form-floating.mt-2
     = f.text_field :name, class: 'form-control', id: 'floatingName', placeholder: 'Name'
     = f.label 'Name', for: 'floatingName'
